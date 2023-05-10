@@ -53,7 +53,6 @@ def menu():
         nombre_est=capitalizar_mayores_tres(str(input("Nombre del estudiante: ")))
         codigo_est=capitalizar_mayores_tres(str(input("Codigo del estudiante: ")))
         estudiante.append([nombre_est,codigo_est])
-        print(estudiante)
     estudiante=sorted(estudiante, key=lambda x: x[0])
     print(estudiante)
     universidad=capitalizar_mayores_tres("universidad tecnologica de bolivar")
