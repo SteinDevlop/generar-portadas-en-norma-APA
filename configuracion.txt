@@ -1,2 +1,0 @@
-fuente='Times New Roman'
-tamaño=12
