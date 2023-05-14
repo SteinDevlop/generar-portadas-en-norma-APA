@@ -56,32 +56,7 @@ def capitalizar_mayores_tres(txt):
         if len(resultado[i]) > 3:
             resultado[i] = resultado[i].capitalize()
     return " ".join(resultado)
-def ejecucion(letra,tamaño):
-    titulo=capitalizar_mayores_tres(str(input("Titulo: ")))
-    n_est = int(input("Numero de integrantes: "))
-    estudiante=[]
-    for i in range (1,n_est+1):
-        nombre_est=capitalizar_mayores_tres(str(input("Nombre del estudiante: ")))
-        codigo_est=capitalizar_mayores_tres(str(input("Codigo del estudiante: ")))
-        estudiante.append([nombre_est,codigo_est])
-    estudiante=sorted(estudiante, key=lambda x: x[0])
-    universidad=capitalizar_mayores_tres("Universidad tecnológica de bolívar")
-    
-    facultades=["Ingenieria","Ciencias Basicas","Ciencias Sociales y Humanidades","Arquitectura","Derecho"]
-    print("""Facultades:
-Ingeniería - 1
-Ciencias Básicas - 2
-Ciencias Sociales y Humanidades - 3
-Arquitectura - 4
-Derecho - 5""")
-    facultad=int(input("Indique la facultad: "))-1
-    facultad=facultades[facultad]
-    materia=capitalizar_mayores_tres(str(input("Materia: ")))
-    docente=capitalizar_mayores_tres(str(input("Docente: ")))
-    fecha=input("Dia de entrega: ")+" de "+input("Mes de entrega: ")+" de "+input("Año: ")
-    agregar_portada(titulo,estudiante,universidad,facultad,materia,docente,fecha,letra,tamaño)
-
-try:
+def ejecucion():
     fuentes=[["Calibri",11],["Arial",11],["Lucida Sans Unicode",10],["Times New Roman",12],["Georgia",11],["Computer Modern",10]]
     print("""
     1- Calibri, 11
@@ -95,6 +70,30 @@ try:
     fuente = fuentes[fuente]
     letra=fuente[0]
     tamaño=fuente[1]
-    ejecucion(letra,tamaño)
+    titulo=capitalizar_mayores_tres(str(input("Titulo: ")))
+    n_est = int(input("Numero de integrantes: "))
+    estudiante=[]
+    for i in range (1,n_est+1):
+        nombre_est=capitalizar_mayores_tres(str(input("Nombre del estudiante: ")))
+        codigo_est=capitalizar_mayores_tres(str(input("Codigo del estudiante: ")))
+        estudiante.append([nombre_est,codigo_est])
+    estudiante=sorted(estudiante, key=lambda x: x[0])
+    universidad=capitalizar_mayores_tres("Universidad tecnológica de bolívar")
+    
+    facultades=["Ingenieria","Ciencias Basicas","Ciencias Sociales y Humanidades","Arquitectura","Derecho"]
+    print("""Facultades:
+1- Ingeniería
+2- Ciencias Básicas
+3- Ciencias Sociales y Humanidades
+4- Arquitectura
+5- Derecho""")
+    facultad=int(input("Indique la facultad: "))-1
+    facultad=facultades[facultad]
+    materia=capitalizar_mayores_tres(str(input("Materia: ")))
+    docente=capitalizar_mayores_tres(str(input("Docente: ")))
+    fecha=input("Dia de entrega: ")+" de "+input("Mes de entrega: ")+" de "+input("Año: ")
+    agregar_portada(titulo,estudiante,universidad,facultad,materia,docente,fecha,letra,tamaño)
+try:
+    ejecucion()
 except Exception as e:
     print(f"Ha ocurrido un error, codigo: {e}")
